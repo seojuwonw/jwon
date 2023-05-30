@@ -1,0 +1,132 @@
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.GridLayout;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+class MyFrame extends JFrame{
+	
+	JPanel displayPanel;
+	JPanel buttonPanel;
+	JPanel debugPanel;
+	
+	JTextField display;
+	
+	JButton[] buttons; // 0~9까지 10개의 버튼을 배열로 써서 만들거임.
+	JButton btnPlus;
+	JButton btnProduct;  //Multiply
+	JButton btnDivide;
+	JButton btnCE;
+	
+	JButton btnDebug;
+	JLabel debugPanel;
+	
+	public MyFrame()
+	{
+		
+	this.setSize(300,400);
+	this.setTitle("GUI Test");
+	this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	
+	this.setLayout( new BorderLayout() );
+
+	// 3개의 panel 객체를 만들고 각자 layout 을 설정해보겠다.
+	displayPanel = new JPanel();
+	buttonPanel = new JPanel();
+	debugPanel = new JPanel();
+	
+	/*display 관련 */
+	
+	//display 에 있는 panel에 component를 만들어서 붙이겠다.
+	display = new JTextField(11); // 글자수가 '11자'가 들어가게 하겠다.
+	display.setText("0");  // 초기 계산기 화면을 0으로 써놓겠다.
+	display.setHorizontalAlignment(JTextField.RIGHT); // field  내 글씨를 오른쪽정렬.
+	Font font = new font("serif", Font.BOLD,30); // = Serif ; 삐침이 나와있는 글씨체. san serif ; non 삐침.
+	display.setFont(font);
+	
+	//displayPanel 에다가 display component를 붙인다.
+	displayPanel.add(display);
+	
+	
+
+	/*버튼 관련 */
+	
+	Font fontBtn = new Font("serif", Font.BOLD, 30); // 버튼에도 폰트를 주고싶어서 객쳉생성.
+	
+	//buttonPanel 에 component 만들고 붙이기.
+	buttons = new JButton[10]; // array 메모리만 만들어진것이다.
+	
+	//실제 버튼 객세 생성하기.
+	for (int i = 0; i < buttons.length ; i++)
+	{
+		//buttons[i] - new JButton(""+i); // i를 String 값으로 받고싶다.
+		buttons[i] = new JButton(Integer.toString(i)); //i를  String값으로 받고싶다.
+		buttons[i].setFont(fontBtn); //버튼의 폰트에 대한 지정 
+	}
+	
+	btnPlus = new JButton("+");
+	btnMinus = new JButton("-");
+	btnProduct = new JButton("*");
+	btnDivide = new JButton("/");
+	btnEqual = new JButton("=");
+	bteCE = new JButton("CE");
+	
+	// 1 2 3 +
+	// 4 5 6 -
+	// 7 8 9 *
+	// 0 / = CE  의 형태로 만들고 싶다.
+	
+	buttonPanel.add(buttons[1]);
+	buttonPane1.add(buttons[2]);
+	buttonPanel.add(buttons[3]);
+	buttonPanel.add(btnPlus);
+	
+	buttonPanel.add(buttons[4]);
+	buttonPanel.add(buttons[5]);
+	buttonPane1.add(buttons[6]);
+	buttonPanel.add(btnMinus);
+	
+	buttonPane1.add(buttons[7]);
+	buttonPane1.add(buttons[8]);
+	buttonPane1.add(buttons[9]);
+	buttonPane1.add(btnProduct);
+	
+	buttonPanel.add(buttons[0]);
+	buttonPanel.add(btnDivide);
+	buttonPanel.add(btnEqual);
+	buttonPanel.add(btnCE);
+	
+	//debugPanel 에 debugMsg 와 btnDebug를 만들어서 붙이겠다.
+	debugMsg = new JLabel("Start Debug");
+	debugbug = new JButton("Debug Button")
+			
+	debugPanel.add(debugMsg);
+	debugPanel.add(btnDebug);
+	
+// frame에다가 panel을 붙여라.
+	this.add(displayPanel, BorderLayout.NORTH);
+	this.add(buttonPanel, BorderLayout.CENTER);
+	this.add(debugPanel, BorderLayout.SOUTH);
+	
+	//this.pack();
+	
+	this.setVisible(true);
+	
+	
+	}
+}//MyFrame Class
+
+public class Test {
+	public static void main(String[]args) {
+		MyFrame frame = new MyFrame();
+		
+		
+	}// main
+}// main Class 
+	}
+}
